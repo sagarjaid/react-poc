@@ -1,0 +1,32 @@
+.dynamic_container{
+    position: fixed;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:20%;
+    opacity: 90;
+    background-color: rgb(233, 233, 233);
+    z-index: 900;
+    padding: 30px;
+    overflow-y: scroll;
+}
+
+.dynamic_menu{
+    position: fixed;
+    top: 10;
+    right: 47;
+    background-color: white;
+    padding: 05px;
+    border: 1px solid gainsboro;
+    border-radius: 05px;
+}
+
+.dynamic_searchpanel{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
