@@ -4,8 +4,9 @@ import useSearch from '../../hooks/useSearch';
 import './Search.css';
 
 const Search = () => {
-  const { searchTerm, loading, Data, setSearchTerm, handleSearch } =
-    useSearch();
+  let url = 'https://fakestoreapi.com/products'
+  const { searchTerm, loading, Data, setSearchTerm, handleSearch, setKey } =
+    useSearch(url);
 
   return (
     <>
@@ -17,6 +18,7 @@ const Search = () => {
           searchTerm={searchTerm}
           loading={loading}
           Data={Data}
+          setKey={setKey}
         />
       }
     </div>

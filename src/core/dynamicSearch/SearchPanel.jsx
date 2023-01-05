@@ -8,22 +8,17 @@ const SearchPanel = (props) => {
     <div>
         {props.Data?.map((el) => (
         <div key={el.id} className="dynamic_searchpanel">
-          <img src={el.image} alt="img" width="60px" />
           <div>
-            <span className="search_name">Title:</span> {el.title}
+            <span className="search_name">Users Name:</span> {el.name}
           </div>
           <div>
-            <span className="search_name">category:</span> {el.title}
+            <span className="search_name">Users UserNames:</span> {el.username}
           </div>
           <div>
-            <span className="search_name">description:</span> {el.description}
-          </div>
-          <div>
-            <span className="search_name">price:</span>
-            {el.price}
+            <span className="search_name">Users email id :</span> {el.email}
           </div>
         </div>
-      ))}      
+      ))}
     </div>
   )
 }

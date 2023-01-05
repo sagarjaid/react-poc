@@ -12,7 +12,10 @@ const DynamicSearchView = (props) => {
           placeholder="search product here..."
           type="text"
           value={props.searchTerm}
-          onChange={(e) => props.handleSearch(e)}
+          onChange={(e) => {
+            props.setKey("name");
+            props.handleSearch(e)
+          }}
         />
       </div>
       <SearchPanel Data={props.Data} loading={props.loading}/>

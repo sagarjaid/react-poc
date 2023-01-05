@@ -1,39 +1,46 @@
 import { useState, useEffect } from 'react';
+import useGetData from './useGetData';
 
-const useSearch = () => {
-  const [Data, setData] = useState();
+const useSearch = (url) => {
   const [searchTerm, setSearchTerm] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [key, setKey] = useState("id");
 
-  const getData = () => {
-    setLoading(true);
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      });
-  };
 
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
+  const {Data, loading, getData, setData} = useGetData(url);
+
+  // const getData = () => {
+  //   setLoading(true);
+  //   fetch('https://fakestoreapi.com/products')
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setData(json);
+  //       setLoading(false);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getData();
+  // }, []);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    console.log(e.target.value, 'e.target.value)');
-
-    if (e.target.value == '' || null) getData();
+    console.log(e.target.value, 'e.target.value');
+    if (e.target.value == '' || null) getData(url);
 
     const results = Data.filter((el) => {
-      return el.title.toLowerCase().includes(e.target.value.toLowerCase());
+
+      let keyz = el.hasOwnProperty(key)
+      console.log(keyz, "keyz");
+      if(keyz && key){
+        return el[key]?.toLowerCase().includes(e.target.value.toLowerCase());
+      }
     });
 
     setData(results);
   };
 
-  return { searchTerm, loading, Data, setSearchTerm, handleSearch };
+  return { searchTerm, loading, Data, setSearchTerm, handleSearch, setKey, url };
 };
 
 export default useSearch;

@@ -11,7 +11,10 @@ const SearchView = (props) => {
           placeholder="search product here..."
           type="text"
           value={props.searchTerm}
-          onChange={(e) => props.handleSearch(e)}
+          onChange={(e) => {
+            props.setKey("title");
+            props.handleSearch(e);
+          }}
         />
       </div>
       {props.Data?.map((el) => (

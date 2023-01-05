@@ -5,8 +5,11 @@ import DynamicSearchView from './DynamicSearchView';
 
 const DynamicSearch = ({modalName}) => {
     const [openModal, setOpenModal] = useState(false);
+    let url = 'https://jsonplaceholder.typicode.com/users'
 
-    const { searchTerm, loading, Data, setSearchTerm, handleSearch } =useSearch();
+    const { searchTerm, loading, Data, setSearchTerm, handleSearch, setKey } =useSearch(url);
+
+    console.log(Data, "Data for dynamic search");
   return (
     <>
     <div onClick={()=>setOpenModal(true)}>{modalName}</div>
@@ -25,6 +28,7 @@ const DynamicSearch = ({modalName}) => {
                     searchTerm={searchTerm}
                     loading={loading}
                     Data={Data}
+                    setKey={setKey}
                     />
             </div>
         </div>
