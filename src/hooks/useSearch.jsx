@@ -8,21 +8,6 @@ const useSearch = (url) => {
 
   const {Data, loading, getData, setData} = useGetData(url);
 
-  // const getData = () => {
-  //   setLoading(true);
-  //   fetch('https://fakestoreapi.com/products')
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setData(json);
-  //       setLoading(false);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   getData();
-  // }, []);
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     console.log(e.target.value, 'e.target.value');
