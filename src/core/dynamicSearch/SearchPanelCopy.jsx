@@ -1,12 +1,13 @@
 import React from 'react'
 import "./DynamicSearch.css"
 
-const SearchPanelCopy= (props) => {
+const SearchPanelCopy = (props) => {
+  
   if (props.loading) return <div className="search_loading">Loading...</div>;
 
   return (
     <div>
-        {props.Data?.map((el) => (
+      {props.Data?.map((el) => (
         <div key={el.id} className="dynamic_searchpanel">
           <img src={el.image} alt="img" width="60px" />
           <div>
@@ -23,7 +24,7 @@ const SearchPanelCopy= (props) => {
             {el.price}
           </div>
         </div>
-      ))}      
+      ))}
     </div>
   )
 }

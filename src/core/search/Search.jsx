@@ -4,24 +4,24 @@ import useSearch from '../../hooks/useSearch';
 import './Search.css';
 
 const Search = () => {
+
   let url = 'https://fakestoreapi.com/products'
-  const { searchTerm, loading, Data, setSearchTerm, handleSearch, setKey } =
-    useSearch(url);
+  let keyName = 'title'
+  
+  const { searchTerm, loading, Data, setSearchTerm, handleSearch } =
+    useSearch(url, keyName);
 
   return (
     <>
-    <div className="search_container">
-      {
-        <SearchView
-          handleSearch={handleSearch}
-          setSearchTerm={setSearchTerm}
-          searchTerm={searchTerm}
-          loading={loading}
-          Data={Data}
-          setKey={setKey}
-        />
-      }
-    </div>
+      <div className="search_container">
+          <SearchView
+            handleSearch={handleSearch}
+            setSearchTerm={setSearchTerm}
+            searchTerm={searchTerm}
+            loading={loading}
+            Data={Data}
+          />
+      </div>
     </>
   );
 };

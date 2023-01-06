@@ -2,6 +2,7 @@ import React from 'react';
 import './Search.css';
 
 const SearchView = (props) => {
+  
   if (props.loading) return <div className="search_loading">Loading...</div>;
 
   return (
@@ -12,11 +13,11 @@ const SearchView = (props) => {
           type="text"
           value={props.searchTerm}
           onChange={(e) => {
-            props.setKey("title");
             props.handleSearch(e);
           }}
         />
       </div>
+
       {props.Data?.map((el) => (
         <ul key={el.id} className="search_ul">
           <img src={el.image} alt="img" width="60px" />

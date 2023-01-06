@@ -6,7 +6,7 @@ const SearchPanel = (props) => {
 
   return (
     <div>
-        {props.Data?.map((el) => (
+      {props.Data?.map((el) => (
         <div key={el.id} className="dynamic_searchpanel">
           <div>
             <span className="search_name">Users Name:</span> {el.name}
